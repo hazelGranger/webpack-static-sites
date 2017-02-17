@@ -12,6 +12,7 @@ html-webpack-plugin插件，重中之重，webpack中生成HTML的插件，
 具体可以去这里查看https://www.npmjs.com/package/html-webpack-plugin
  */
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 
 /*
 提取公共模块的插件
@@ -27,8 +28,8 @@ var chunks = Object.keys(entries);
 var config = {
 	entry: entries,
 	output: {
-		path: path.join(__dirname,'dist'),
-		publicPath: '/dist/',
+		path: path.join(__dirname,'dist'),//js,css,img 路径
+		publicPath: '/dist/',//会影响打包后文件上述3者的路径,改为'./' 虽然打包结果正常，但是热替换功能没有了
 		filename: 'js/[name].js',
 		chunkFilename: 'js/[id].chunk.js?[chunkhash]'
 	},
@@ -47,6 +48,7 @@ var config = {
 				//比如你配置，attrs=img:src img:data-src就可以一并处理data-src引用的资源了，就像下面这样
 				test: /\.html$/,
 				loader: "html?attrs=img:src img:data-src"
+				//loader: "raw"
 			}, {
 				//文件加载器，处理文件静态资源
 				test: /\.(woff|woff2|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
@@ -59,9 +61,17 @@ var config = {
 			}
 		]
 	},
+	resolve: {
+		alias: {
+			pages: path.join(__dirname,'dist')
+		}
+	},
 	plugins: [
 		new webpack.ProvidePlugin({
 			$: 'jquery'
+		}),
+		new webpack.DefinePlugin({
+			'ENV': JSON.stringify(process.env.ENV)
 		}),
 		new CommonsChunkPlugin({
 			name: 'vendors',
@@ -75,14 +85,25 @@ var config = {
 		// 	},
 		// 	except: ['$super','$','exports','require']
 		// })
-	]
+
+		new webpack.HotModuleReplacementPlugin()
+	],
+	devServer: {
+		contentBase: './dist/',
+		host: 'localhost',
+		port: 9090,
+		inline: true,
+		hot: true,
+		quiet: true
+	}
 }
 
 var pages = Object.keys(getEntry('src/view/**/*.html','src/view/'));
 
 pages.forEach(function(pathname){
 	var conf = {
-		filename: '../dist/view/' + pathname + '.html',
+		alwaysWriteToDisk: true,
+		filename: '../dist/' + pathname + '.html',
 		template: 'src/view/' + pathname + '.html',
 		inject: false
 	};
@@ -95,7 +116,11 @@ pages.forEach(function(pathname){
 	}
 
 	config.plugins.push(new HtmlWebpackPlugin(conf));
-})	
+})
+
+config.plugins.push(new HtmlWebpackHarddiskPlugin({
+		outputPath: path.resolve(__dirname,'dist')
+}));
 
 
 

@@ -5,7 +5,7 @@ require("../../css/common/grid.css");
 require("../../css/page/index.less");
 
 
-$('.g-bd').append('<p class="text">这是由js生成的一句话。</p>');
+$('.g-bd').append('<p class="text">这是由js生成的一句话。123</p>');
 
 //增加事件
 $('.btn').click(function() {
@@ -14,3 +14,4 @@ $('.btn').click(function() {
 		new Dialog();
 	});
 });
+

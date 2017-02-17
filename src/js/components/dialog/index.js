@@ -9,7 +9,9 @@ module.exports = function() {
 		$dialog.fadeOut(function() {
 			$(this).remove();
 		});
+		console.log('close');
 	});
 	$('body').append($dialog);
 	$dialog.fadeIn();
+	console.log('open123');
 }

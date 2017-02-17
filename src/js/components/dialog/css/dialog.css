@@ -25,3 +25,7 @@
 	max-width: 90%;
 	max-height: 90%;
 }
+.v-dialog h3{
+	color: #fff;
+	font-size: 30px;
+}
