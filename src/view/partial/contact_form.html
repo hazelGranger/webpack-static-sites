@@ -1,0 +1,130 @@
+
+<style type="text/css" scoped>
+    .mauticform_wrapper {}
+    .mauticform-innerform {}
+    .mauticform-post-success {}
+    .mauticform-name { font-weight: bold; font-size: 1.5em; margin-bottom: 3px; }
+    .mauticform-description { margin-top: 2px; margin-bottom: 10px; }
+    .mauticform-error { margin-bottom: 10px; color: red; }
+    .mauticform-message { margin-bottom: 10px;color: #1663a8; text-align: center;}
+    .mauticform-row { display: block; margin-bottom: 20px; }
+    .mauticform-label { font-size: 1.1em; display: block; margin-bottom: 5px; position: relative;}
+    .mauticform-row.mauticform-required .mauticform-label:after { color: #e32; content: " *"; display: inline; }
+    .mauticform-helpmessage { display: block; font-size: 0.9em; margin-bottom: 3px; }
+    .mauticform-errormsg { display: block; color: red; margin-top: 2px; }
+    .mauticform-selectbox, .mauticform-input, .mauticform-textarea { width: 100%; padding: 0.6em 0.2em; border: none; border-radius: 4px; box-sizing: border-box; background-color: #f5f5f5;}
+    .mauticform-checkboxgrp-row {}
+    .mauticform-checkboxgrp-label { font-weight: normal; }
+    .mauticform-checkboxgrp-checkbox {}
+    .mauticform-radiogrp-row {}
+    .mauticform-radiogrp-label { font-weight: normal; }
+    .mauticform-radiogrp-radio {}
+    #mauticform_itom{
+        width: 80%;
+        margin: auto;
+    }
+    .mauticform-button{
+        display: inline-block;
+        padding: 6px 12px;
+        margin-bottom: 0;
+        font-size: 14px;
+        font-weight: normal;
+        line-height: 1.42857143;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background-image: none;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        cursor: pointer;
+        font-family: "Hiragino Sans GB", "Helvetica Neue", "Helvetica", "Arial", "Verdana", "Microsoft Yahei", "sans-serif";
+        border-color: #1663a8;
+        background-color: #1663a8;
+        color: #fff;
+        font-weight: 400;
+        width: 100%;
+        transition: all 0.3s ease-in-out;
+    }
+    .mauticform-button:hover{
+        border-color: #125590;
+        background-color: #125590;
+    }
+    .mauticform-errormsg{
+        display: block;
+        color: #e32;
+        margin-top: 2px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-size: 14px;
+    }
+</style>
+
+<div id="mauticform_wrapper_itom" class="mauticform_wrapper">
+    <form autocomplete="false" role="form" method="post" action="http://yunying.oneapm.com/form/submit?formId=17" id="mauticform_itom" data-mautic-form="itom">
+        <div class="mauticform-error" id="mauticform_itom_error"></div>
+        <div class="mauticform-message" id="mauticform_itom_message"></div>
+        <div class="mauticform-innerform">
+
+            <div id="mauticform_itom_czjmu"  data-validate="czjmu" data-validation-type="text" class="mauticform-row mauticform-text mauticform-required">
+                <label id="mauticform_label_itom_czjmu" for="mauticform_input_itom_czjmu" class="mauticform-label">公司<span class="mauticform-errormsg" style="display: none;">本项为必填。</span></label>
+                <input id="mauticform_input_itom_czjmu" name="mauticform[czjmu]" value="" class="mauticform-input" type="text" />
+                
+            </div>
+
+            <div id="mauticform_itom_lmivw"  data-validate="lmivw" data-validation-type="text" class="mauticform-row mauticform-text mauticform-required">
+                <label id="mauticform_label_itom_lmivw" for="mauticform_input_itom_lmivw" class="mauticform-label">联系人<span class="mauticform-errormsg" style="display: none;">本项为必填。</span></label>
+                <input id="mauticform_input_itom_lmivw" name="mauticform[lmivw]" value="" class="mauticform-input" type="text" />
+                
+            </div>
+
+            <div id="mauticform_itom_lexrn"  data-validate="lexrn" data-validation-type="tel" class="mauticform-row mauticform-tel mauticform-required">
+                <label id="mauticform_label_itom_lexrn" for="mauticform_input_itom_lexrn" class="mauticform-label">电话（11位手机号）<span class="mauticform-errormsg" style="display: none;">本项为必填。</span></label>
+                <input id="mauticform_input_itom_lexrn" name="mauticform[lexrn]" value="" class="mauticform-input" type="tel"  pattern="[0-9]{11}" />
+                
+            </div>
+
+            <div id="mauticform_itom_zjxoa"  data-validate="zjxoa" data-validation-type="email" class="mauticform-row mauticform-email mauticform-required">
+                <label id="mauticform_label_itom_zjxoa" for="mauticform_input_itom_zjxoa" class="mauticform-label">邮箱<span class="mauticform-errormsg" style="display: none;">本项为必填。</span></label>
+                <input id="mauticform_input_itom_zjxoa" name="mauticform[zjxoa]" value="" class="mauticform-input" type="email" />
+                
+            </div>
+
+            <div id="mauticform_itom_submit"  class="mauticform-row mauticform-button-wrapper">
+                <button type="submit" name="mauticform[submit]" id="mauticform_input_itom_submit" name="mauticform[submit]" value="" class="mauticform-button" value="1">提交</button>
+            </div>
+
+            <input type="hidden" name="mauticform[formId]" id="mauticform_itom_id" value="17" />
+            <input type="hidden" name="mauticform[return]" id="mauticform_itom_return" value="" />
+            <input type="hidden" name="mauticform[formName]" id="mauticform_itom_name" value="itom" />
+
+        </div>
+    </form>
+</div>
+
+<script type="text/javascript">
+
+    /** This section is only needed once per page if manually copying **/
+    if (typeof MauticSDKLoaded == 'undefined') {
+        var MauticSDKLoaded = true;
+        var head            = document.getElementsByTagName('head')[0];
+        var script          = document.createElement('script');
+        script.type         = 'text/javascript';
+        script.src          = 'http://yunying.oneapm.com/media/js/mautic-form.js';
+        script.onload       = function() {
+            MauticSDK.onLoad();
+        };
+        head.appendChild(script);
+        var MauticDomain = 'http://yunying.oneapm.com';
+        var MauticLang   = {
+            'submittingMessage': "请等待 ..."
+        }
+    }
+</script>

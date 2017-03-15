@@ -1,0 +1,236 @@
+//section 公用样式
+section{
+	h2.title{
+		font-size: 40px;
+		text-align: center;
+	}
+}
+
+section.hero-image{
+	background-image: url('../../img/copartner/index.png');
+	background-size: cover;
+	height: 690px;
+	position: absolute;
+	top: 0;
+	z-index: 0;
+	width: 100%;
+	img.left{
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 50%;
+	}
+	img.right{
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		width: 30%;
+	}
+}
+
+section.hero-contents{
+	height: 590px;
+	.title{
+		color: #fff;
+		font-size: 50px;
+		margin-top: 150px;
+	}
+	.desp{
+		font-size: 22px;
+		color: rgba(255, 255, 255, 0.8);
+		line-height: 1.6;
+		margin: 30px 0;
+	}
+	.btn{
+		color: #fff;
+		background-color: rgba(255, 255, 255, 0.3);
+		border: 2px solid #fff;
+		padding: 10px 15px;
+		transition: all 0.3s ease-in-out;
+		margin-right: 30px;
+		&:hover{
+			background-color: rgba(255, 255, 255, 0.5);
+		}
+	}
+	.btn-p{
+		padding-top: 10px;
+		a{
+			color: #fff;
+		}
+	}
+}
+
+section.tab{
+	margin-top: -46px;
+	.tab-header{
+		background: rgba(0,0,0,0.7);
+		color: #fff;
+		font-size: 20px;
+		.item{
+			padding: 20px;
+			text-align: center;
+			flex: 1;
+			cursor: pointer;
+			outline: 0;
+			&.active{
+				background-color: #fff;
+				color: #1663a8;
+			}
+		}
+	}
+	.tab-body{
+		padding: 90px 0;
+		.tab-contents{
+			display: none;
+			&.active{
+				display: block;
+			}
+		}
+		.title-underline{
+			margin: 40px auto;
+			border-top: 5px solid #1663a8;
+			width: 60px;
+		}
+		.subtitle{
+			font-size: 24px;
+			color: #1562a7;
+			text-align: center;
+			padding-top: 15px;
+			padding-bottom: 45px;
+		}
+		img{
+			max-width: 300px;
+			margin: auto;
+			display: block;
+			&.solo{
+				max-width: 100%;
+				width: 600px;
+			}
+		}
+		ul{
+			.list-title{
+				font-size: 24px;
+				color: #000;
+				text-align: center;
+				margin-bottom: 30px;
+			}
+			li{
+				text-align: left;
+				color: #666;
+				font-size: 18px;
+				line-height: 1.7;
+				text-indent: 107px;
+			}
+		}
+		.stretch-box{
+			min-height: 180px;
+			margin-bottom: 60px;
+		}
+		h4.title{
+			font-size: 24px;
+			color: #000;
+			margin-bottom: 30px;
+		}
+		p.desp{
+			font-size: 14px;
+			color: #666;
+			line-height: 1.7;
+			max-width: 300px;
+		}
+	}
+
+}
+
+section.qualification{
+	background-color: #1663a8;
+    padding: 100px 0;
+    overflow: hidden;
+    color: #fff;
+    &:before{
+	    content: '';
+	    display: block;
+	    position: absolute;
+	    top: 0;
+	    left: 50%;
+	    z-index: 0;
+	    width: 100%;
+	    height: 100%;
+	    background-color: #125590;
+	    -webkit-transform: skew(-45deg);
+	    -moz-transform: skew(-45deg);
+	    -o-transform: skew(-45deg);
+	    -ms-transform: skew(-45deg);
+	    transform: skew(-45deg);
+    }
+    .title-underline{
+    	margin: 40px auto;
+    	border-top: 5px solid #fff;
+    	width: 60px;
+    }
+    ul{
+    	li{
+    		text-align: center;
+    		list-style: disc inside;
+    		line-height: 1.8;
+    	}
+    }
+}
+
+section.courses,section.testV{
+	padding: 90px 0;
+	display: none;
+	.table{
+		th{
+			color: #1663a8;
+			font-size: 24px;
+			text-align: left;
+			padding: 0 10px;
+		}
+		td{
+			text-align: left;
+		}
+		.flextd{
+			display: flex;
+			flex-wrap: wrap;
+			div{
+				padding: 10px;
+				flex-basis: 50%;
+				text-align: left;
+			}
+		}
+	}
+}
+
+
+@media(min-width: 992px) and (max-width: 1199px){
+	section.tab .tab-body{
+		ul li{
+			text-indent: 75px;
+		}
+		.stretch-box{
+			min-height: 260px;
+		}
+	}
+
+}
+
+
+@media(min-width: 768px) and (max-width: 991px){
+	section.tab .tab-body{
+		ul li{
+			text-indent: 20px;
+		}
+	}
+}
+
+@media(max-width: 767px) {
+	section.tab .tab-body{
+		ul li{
+			text-indent: 0;
+			text-align: center;
+		}
+	}
+	section.tab{
+		margin-top: -72px;
+	}
+}

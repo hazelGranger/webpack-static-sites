@@ -1,0 +1,165 @@
+<header>
+	<div class="nav">
+		<div class="container">
+			<div class="logo">
+				<a href="/index.html">
+					<img src="<%= require('../../img/logowhite.svg') %>" alt="">
+				</a>
+			</div>
+			<div class="navbar">
+				<div class="nav-item <%if(pageId =='index') {%><%='active' %> <% }%>" id="products">
+					<a href="/index.html">
+						产品
+					</a>
+				</div>
+				<div class="nav-item <%if(pageId =='copartner') {%><%='active' %> <% }%>" id="eco">
+					<a href="/copartner.html">
+						蓝海生态
+					</a>
+				</div>
+				<div class="nav-item" id="clients">
+					<a href="http://www.oneapm.com/clients/clientcase.html" target="_blank">
+						客户
+					</a>
+				</div>
+				<div class="nav-item" id="about">
+					<a href="http://www.oneapm.com/info/about.html" target="_blank">
+						关于
+					</a>
+				</div>
+			</div>
+			<div class="navbar nav-right">
+				<!-- <div class="nav-item">
+					<a href="http://user.oneapm.com/pages/v2/login" target="_blank">登录</a>
+				</div> -->
+				<div class="nav-item">
+					<a class="btn contact-us" target="_blank">注册</a>
+				</div>
+			</div>
+			<div class="navbar-toggle-btn">
+				<span class="bar"></span>
+				<span class="bar"></span>
+				<span class="bar"></span>
+			</div>
+			<div class="mobile-navbar">
+				<div class="nav-item active" id="products">
+					<ul>
+						<div class="item-title">
+							<a href="#">
+								产品
+							</a>
+						</div>
+						<li><a target="_blank" href="http://www.oneapm.com/ai/feature.html">Ai</a></li>
+						<li><a target="_blank" href="http://www.oneapm.com/mi/feature.html">Mi</a></li>
+						<li><a target="_blank" href="http://www.oneapm.com/bi/feature.html">Bi</a></li>
+						<li><a target="_blank" href="http://www.oneapm.com/ct/feature.html">Ct</a></li>
+						<li><a target="_blank" href="http://www.oneapm.com/si/feature.html">Si</a></li>
+						<li><a target="_blank" href="http://www.oneapm.com/ni/feature.html">Ni</a></li>
+						<li><a target="_blank" href="http://cloudinsight.oneapm.com/">Ci</a></li>
+						<li><a target="_blank" href="#">CMDB</a></li>
+						<li><a target="_blank" href="#">OneITOM</a></li>
+						<li><a target="_blank" href="http://www.oneapm.com/cpt/feature.html">Cpt</a></li>
+						<li><a target="_blank" href="https://www.oneasp.com/" target="_blank">OneASP</a></li>
+					</ul>
+				</div>
+				<div class="nav-item" id="clients" style="border-bottom: 1px solid rgba(255, 255, 255, 0.2);">
+					<a href="http://www.oneapm.com/clients/clientcase.html" target="_blank">
+						客户
+					</a>
+				</div>
+				<div class="nav-item" id="about">
+					<a href="http://www.oneapm.com/info/about.html" target="_blank">
+						关于
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="products-nav">
+		<div class="category col-2">
+			<div class="title">APM 应用性能管理</div>
+			<ul>
+				<li>
+					<a href="http://www.oneapm.com/ai/feature.html" target="_blank">
+						<img src="<%= require('../../img/header/ailogo.svg') %>" alt="">
+						代码级应用服务端性能监控
+					</a>
+				</li>
+				<li>
+					<a href="http://www.oneapm.com/mi/feature.html" target="_blank">
+						<img src="<%= require('../../img/header/milogo.svg') %>" alt="">
+						移动应用性能监控
+					</a>
+				</li>
+				<li>
+					<a href="http://www.oneapm.com/bi/feature.html" target="_blank">
+						<img src="<%= require('../../img/header/bilogo.svg') %>" alt="">
+						基于真实用户体验的前端<br/>浏览器性能监控
+					</a>
+				</li>
+				<li>
+					<a href="http://www.oneapm.com/ct/feature.html" target="_blank">
+						<img src="<%= require('../../img/header/ctlogo.svg') %>" alt="">
+						7*24 小时持续模拟监控
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="category col-2">
+			<div class="title">IT 基础设施管理</div>
+			<ul>
+				<li>
+					<a href="http://www.oneapm.com/si/feature.html" target="_blank">
+						<img src="<%= require('../../img/header/silogo.svg') %>" alt="">
+						企业级 IT 综合运维平台
+					</a>
+				</li>
+				<li>
+					<a href="http://www.oneapm.com/ni/feature.html" target="_blank">
+						<img src="<%= require('../../img/header/nilogo.svg') %>" alt="">
+						应用感知型网络性能监控
+					</a>
+				</li>
+				<li>
+					<a href="http://cloudinsight.oneapm.com/" target="_blank">
+						<img src="<%= require('../../img/header/cilogo.svg') %>" alt="">
+						IT集中监控及智能告警
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="category">
+			<div class="title">IT 服务管理</div>
+			<ul>
+				<li>
+					<img src="<%= require('../../img/header/cmdblogo.svg') %>" alt="" style="height: 40px;margin-bottom: 30px;">
+					IT 配置管理平台
+				</li>
+				<li>
+					<img src="<%= require('../../img/header/itsmlogo.svg') %>" alt="" style="height: 40px;margin-bottom: 30px;">
+					IT 服务管理平台
+				</li>
+			</ul>
+		</div>
+		<div class="category">
+			<div class="title">性能压测</div>
+			<ul>
+				<li>
+					<a href="http://www.oneapm.com/cpt/feature.html" target="_blank">
+						<img src="<%= require('../../img/header/cptlogo.svg') %>" alt="">
+						新一代云压力测试平台
+					</a>
+				</li>
+			</ul>
+			<div class="title" style="margin-top: 15px;margin-bottom: 0;">应用安全</div>
+			<ul>
+				<li>
+					<a href="https://www.oneasp.com/" target="_blank">
+						<img src="<%= require('../../img/header/oneasplogo.svg') %>" alt="" style="height: 40px;margin-bottom: 30px;">
+						一站式企业安全防护平台
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</header>

@@ -22,14 +22,28 @@ var UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 
 const debug = process.env.NODE_ENV !== 'production';
 
+
 var entries = getEntry('src/js/page/**/*.js','src/js/page/');
 var chunks = Object.keys(entries);
+
+var settings = {
+	'publicPath': '/dist/',
+	'urlLoader': 'url-loader?limit=8192&name=./img/[name][hash].[ext]'
+}
+
+if (process.env.ENV == 'production') {
+	console.log('production')
+	settings.publicPath = '/';
+}else{
+	console.log('dev')
+}
+
 
 var config = {
 	entry: entries,
 	output: {
-		path: path.join(__dirname,'dist'),//js,css,img 路径
-		publicPath: '/dist/',//会影响打包后文件上述3者的路径,改为'./' 虽然打包结果正常，但是热替换功能没有了
+		path: path.join(__dirname,'dist'),//生成文件的根目录
+		publicPath: settings.publicPath,//针对浏览器的路径，开发环境和生产环境不一样
 		filename: 'js/[name].js',
 		chunkFilename: 'js/[id].chunk.js?[chunkhash]'
 	},
@@ -49,15 +63,18 @@ var config = {
 				test: /\.html$/,
 				loader: "html?attrs=img:src img:data-src"
 				//loader: "raw"
-			}, {
+			},{
+				test: /\.ejs$/,
+				loader: 'ejs-loader'
+			},{
 				//文件加载器，处理文件静态资源
-				test: /\.(woff|woff2|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+				test: /fonts\.(woff|woff2|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
 				loader: 'file-loader?name=./fonts/[name].[ext]'
 			}, {
 				//图片加载器，雷同file-loader，更适合图片，可以将较小的图片转成base64，减少http请求
 				//如下配置，将小于8192byte的图片转成base64码
-				test: /\.(png|jpg|gif)$/,
-				loader: 'url-loader?limit=8192&name=./img/[hash].[ext]'
+				test: /\.(png|jpg|gif|svg)$/,
+				loader: settings.urlLoader
 			}
 		]
 	},
@@ -90,7 +107,7 @@ var config = {
 	],
 	devServer: {
 		contentBase: './dist/',
-		host: 'localhost',
+		host: '0.0.0.0',
 		port: 9090,
 		inline: true,
 		hot: true,
@@ -98,13 +115,14 @@ var config = {
 	}
 }
 
-var pages = Object.keys(getEntry('src/view/**/*.html','src/view/'));
+// HtmlWebpackPlugin 入口为 template（pages下的js），输出html
+var pages = Object.keys(getEntry('src/view/pages/**/*.js','src/view/pages/'));
 
 pages.forEach(function(pathname){
 	var conf = {
 		alwaysWriteToDisk: true,
 		filename: '../dist/' + pathname + '.html',
-		template: 'src/view/' + pathname + '.html',
+		template: 'src/view/pages/' + pathname + '.js',
 		inject: false
 	};
 
@@ -121,7 +139,6 @@ pages.forEach(function(pathname){
 config.plugins.push(new HtmlWebpackHarddiskPlugin({
 		outputPath: path.resolve(__dirname,'dist')
 }));
-
 
 
 module.exports = config;
@@ -144,6 +161,7 @@ function getEntry(globPath,pathDir){
 		}
 		entries[pathname] = ['./' + entry];
 	}
+	console.log(entries)
 
 	return entries;
 

@@ -5,12 +5,14 @@
   "scripts": {
     "test": "null",
     "dev": "rm -rf dist/  && webpack && webpack-dev-server",
-    "build": "rm -rf dist/  && webpack"
+    "build": "rm -rf dist/  && env ENV=production  webpack"
   },
   "author": "oneapm-fed",
   "devDependencies": {
     "cross-env": "^3.1.4",
     "css-loader": "^0.23.1",
+    "ejs-loader": "^0.3.0",
+    "ejs-tpl-loader": "^1.0.5",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
     "glob": "^7.1.1",
