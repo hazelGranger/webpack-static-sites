@@ -52,7 +52,7 @@ var config = {
 			{
 				test: /\.css$/,
 				//配置css的抽取器、加载器。'-loader'可以省去
-				loader: ExtractTextPlugin.extract('style-loader', 'css-loader') 
+				loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
 			}, {
 				test: /\.less$/,
 				//根据从右到左的顺序依次调用less、css加载器，前一个的输出是后一个的输入
@@ -127,7 +127,7 @@ pages.forEach(function(pathname){
 	};
 
 	if (pathname in config.entry) {
-		conf.favicon = path.resolve(__dirname,'src/img/favicon.ico');
+		conf.favicon = path.resolve(__dirname,'src/img/favicon.png');
 		conf.inject = 'body';
 		conf.chunks = ['vendors',pathname];
 		conf.hash = true;
